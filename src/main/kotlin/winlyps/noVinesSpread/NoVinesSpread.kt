@@ -14,6 +14,9 @@ class NoVinesSpread : JavaPlugin() {
 
     override fun onDisable() {
         // Plugin shutdown logic
-        logger.info("NoVinesSpread plugin has been disabled.")
+        server.worlds.forEach { world ->
+            world.setGameRuleValue("doVinesSpread", "true")
+            logger.info("NoVinesSpread plugin has been disabled.")
+        }
     }
 }
